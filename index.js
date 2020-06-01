@@ -46,14 +46,14 @@ class SinglyLinkedList {
     };
 
     get(index) {
-        if (inbdex < 0 || index >= this.length) {
+        if (index < 0 || index <= this.length) {
             return null;
         };
         var counter = 0;
         var current = this.head;
         while (counter !== index) {
             current = current.next;
-            counter ++;
+            counter++;
         };
         return current;
     };
@@ -67,7 +67,26 @@ class SinglyLinkedList {
         return false;
     };
 
-    
+    removeAtIndex(index) {
+        if (index === 0 && this.head !== null) {
+            this.head = this.head.next;
+        } else {
+            if (index >= length || index < 0) {
+                return null;
+            };
+            var current = this.head;
+            var previous;
+            var counter = 0;
+            while (counter !== index) {
+                previous = current;
+                current = current.next;
+                counter++;
+            };
+            previous.next = current.next;
+            length--;
+            return current.data
+        };
+    };
 
 };
 

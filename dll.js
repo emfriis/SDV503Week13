@@ -85,10 +85,19 @@ class DoublyLinkedList {
                 current = current.next; // Sets the current node to the next node.
                 counter++; // Increments the counter.
             };
-            return current !== null ? current.data : undefined; // If current node isn't null returns its data, if not, returns undefined.
+            return current !== null ? current : undefined; // If current node isn't null returns i, if not, returns undefined.
         } else {
             return undefined;
         };
+    };
+
+    setAtIndex(index, data) {
+        let foundNode = this.getAtIndex(index); // Gets node with class method.
+        if (foundNode !== null) { // Executes if node is found.
+            foundNode.data = data; // Assigns new data value to found node.
+            return true;
+        };
+        return false;
     };
 
 };
